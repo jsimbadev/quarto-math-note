@@ -1,0 +1,3 @@
+# Introduction {#sec-introduction}
+
+State the research question, relationship to the literature and the contribution. Remove this guidance when drafting the note.

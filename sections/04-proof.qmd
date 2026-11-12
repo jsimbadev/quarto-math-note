@@ -1,0 +1,13 @@
+# Proof {#sec-proof}
+
+Show how @asm-example implies the assumptions used to establish @thm-main.
+
+::: {#lem-example}
+## Supporting lemma (draft)
+
+Replace with a verified supporting estimate.
+:::
+
+::: {.proof}
+Write the argument, with constants and limiting operations justified.
+:::

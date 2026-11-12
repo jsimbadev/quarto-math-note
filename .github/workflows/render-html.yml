@@ -1,0 +1,51 @@
+name: Render research note (HTML + PDF)
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/render-html.yml'
+      - '_quarto.yml'
+      - 'index.qmd'
+      - 'sections/**'
+      - 'appendices/**'
+      - 'filters/**'
+      - 'styles/**'
+      - 'styles.css'
+      - 'macros.tex'
+      - 'mathjax-macros.html'
+      - 'references.bib'
+      - 'scripts/**'
+      - 'tests/**'
+      - 'tex/**'
+permissions:
+  contents: write
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          tinytex: true
+      - name: Validate sources and render
+        run: |
+          python3 scripts/sync-macros.py --check
+          python3 scripts/check-source.py
+          python3 -m unittest discover -s tests -v
+          sed -i 's/latex-auto-install: false/latex-auto-install: true/' _quarto.yml
+          quarto render index.qmd --to html
+          quarto render index.qmd --to pdf
+          python3 scripts/check-render.py
+      - name: Commit rendered outputs
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git restore _quarto.yml
+          git add -f _output/index.html _output/index.pdf _output/index_files _output/styles.css
+          if git diff --cached --quiet; then
+            echo 'Rendered outputs unchanged.'
+          else
+            git commit -m 'docs: render HTML and PDF [skip ci]'
+            git push
+          fi

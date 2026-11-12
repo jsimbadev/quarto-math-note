@@ -1,0 +1,9 @@
+# Setting and assumptions {#sec-setting}
+
+Define the state space, stochastic process and notation.
+
+::: {#asm-example}
+## Example assumption
+
+Replace this placeholder with an independently verifiable hypothesis.
+:::

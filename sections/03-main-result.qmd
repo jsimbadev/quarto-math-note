@@ -1,0 +1,7 @@
+# Main result {#sec-main-result}
+
+::: {#thm-main}
+## Main theorem (draft)
+
+State the precise result under explicit assumptions. This is a placeholder, not a proved claim.
+:::

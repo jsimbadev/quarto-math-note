@@ -1,0 +1,3 @@
+# Technical details {#sec-technical-details}
+
+Longer calculations, preliminary estimates and subsidiary results belong here.

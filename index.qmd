@@ -1,0 +1,28 @@
+---
+title: "Research note title"
+author:
+  - name: "Author name"
+    affiliations:
+      - name: "Affiliation"
+date: last-modified
+abstract: |
+  Replace with a precise, self-contained account of the problem, result,
+  main assumptions and motivation before publication.
+---
+
+{{< include sections/01-introduction.qmd >}}
+
+{{< include sections/02-setting.qmd >}}
+
+{{< include sections/03-main-result.qmd >}}
+
+{{< include sections/04-proof.qmd >}}
+
+{{< include sections/05-discussion.qmd >}}
+
+{{< include appendices/appendix-a.qmd >}}
+
+# References {.unnumbered}
+
+::: {#refs}
+:::

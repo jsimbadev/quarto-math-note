@@ -1,0 +1,7 @@
+# Render with: quarto render index.qmd --to pdf --profile arxiv
+# Normal manuscript PDF remains LuaLaTeX; the arXiv source candidate uses XeLaTeX.
+format:
+  pdf:
+    pdf-engine: xelatex
+    keep-tex: true
+    latex-auto-install: false
